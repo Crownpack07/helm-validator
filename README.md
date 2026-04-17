@@ -45,14 +45,14 @@ cd helm-validator
 
 This script will:
 
-- copy `validate-helm-charts.sh` to `~/.local/bin/validate-helm`
+- copy `validate-helm.sh` to `~/global-scripts/validate-helm.sh`
 - make the script executable
-- add `~/.local/bin` to your shell config if needed
+- add an alias to your shell config if needed
 
 After install, reload your shell:
 
 ```bash
-source ~/.zshrc   # or ~/.bashrc or ~/.profile depending on your shell
+source ~/.zshrc   # or ~/.bashrc or ~/.bash_profile or ~/.profile depending on your shell
 ```
 
 Then run:
@@ -67,13 +67,13 @@ You can run the validator directly from the repository without installing it.
 
 ```bash
 cd helm-validator
-./validate-helm-charts.sh
+./validate-helm.sh
 ```
 
 You can also run the script from anywhere if you provide the repository path:
 
 ```bash
-/path/to/helm-validator/validate-helm-charts.sh
+/path/to/helm-validator/validate-helm.sh
 ```
 
 ## Usage
@@ -85,7 +85,7 @@ validate-helm [options] [directory]
 When using the script directly:
 
 ```bash
-./validate-helm-charts.sh [options] [directory]
+./validate-helm.sh [options] [directory]
 ```
 
 ### Options
@@ -130,7 +130,7 @@ validate-helm ../charts
 ### Direct script execution without install
 
 ```bash
-./validate-helm-charts.sh -m both -e dev,qa ../my-charts
+./validate-helm.sh -m both -e dev,qa ../my-charts
 ```
 
 ## What the script does
@@ -161,8 +161,8 @@ If any check fails, the script reports the error output and exits with a non-zer
 
 ## Notes
 
-- The installer writes to `~/.local/bin` and updates your shell config only if needed.
-- If your shell is not `bash` or `zsh`, the installer falls back to `~/.profile`.
+- The installer writes to `~/global-scripts` and adds an alias to your shell config only if needed.
+- If your shell is not `bash` or `zsh`, the installer falls back to `~/.bash_profile` or `~/.profile`.
 - You can customize the target directory and modes without modifying the script.
 
 ## License
